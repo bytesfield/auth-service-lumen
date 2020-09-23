@@ -35,7 +35,7 @@ class UserAuthTest extends TestCase
         ];
 
         $response = $this->json('POST', '/api/register', $data);
-
+        $this->assertEquals(200, $this->response->status());
         $response->seeStatusCode(200);
 
     }
@@ -84,7 +84,7 @@ class UserAuthTest extends TestCase
         ];
 
         $response = $this->json('POST', '/api/login', $credentials);
-
+        $this->assertEquals(422, $this->response->status());
         $response->seeStatusCode(422);
     }
 
@@ -109,7 +109,7 @@ class UserAuthTest extends TestCase
          ];
 
          $response = $this->json('POST', '/api/login', $credentials);
-
+         $this->assertEquals(422, $this->response->status());
          $response->seeStatusCode(422);
 
      }
@@ -118,6 +118,8 @@ class UserAuthTest extends TestCase
     public function get_all_users_if_route_exist() {
 
         $response = $this->json('GET','/api/getUsers');
+
+        $this->assertEquals(200, $this->response->status());
 
         $response->seeStatusCode(200);
 
@@ -133,6 +135,7 @@ class UserAuthTest extends TestCase
 
         $response = $this->json('GET','/api/getUsers');
 
+        $this->assertEquals(200, $this->response->status());
         $response->seeStatusCode(200);
 
     }
@@ -144,12 +147,8 @@ class UserAuthTest extends TestCase
 
         $token = auth('api')->tokenById($user->id);
 
-        //$response = $this->withHeaders(['Authorization' => 'Bearer '.$token])
-        //->json('GET', '/api/generateToken');
-
-        $response = $this->json('GET', '/api/generateToken',  ['HTTP_Authorization' => 'Bearer '.$token]);
-        //$this->assertEquals(422, $this->response->status());
-
+        $response = $this->get('/api/generateToken',  ['HTTP_Authorization' => 'Bearer '.$token]);
+        $this->assertEquals(200, $this->response->status());
 
         $response->seeStatusCode(200);
 

@@ -34,14 +34,14 @@ class AuthenticationController extends Controller
             return $this->validationFailed('Failed Validation', $validate->errors()); // Check if Validation fails
         }
 
-        //Create User Account
-        $user = new User;
+
+        $user = new User;  //Create User Account
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->phone = $request->phone;
         $user->email = $request->email;
         $user->password = Hash::make($request->input('password'));
-        //End Create Login Account
+
 
         if ($user->save()) {
 
@@ -111,9 +111,9 @@ class AuthenticationController extends Controller
         ], 200);
 
     }
-    //-----------------------------------End-----------------------------------------
 
-    /** Get or Fetch All Registered Users data
+
+    /** Authenticated user Generates new token for further action
       *
      */
     public function generateToken(JWTAuth $JWTAuth){
@@ -130,10 +130,7 @@ class AuthenticationController extends Controller
         ], 200);
 
     }
-    //-----------------------------------End of Token Generation-----------------------------
 
-
-    //-----------------------------------Form Validation rules-----------------------------
 
     /**
      * Get a validator for User Registration .
