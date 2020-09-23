@@ -26,7 +26,7 @@ Start your lumen development server : php -S localhost:8000 -t public.
 Open Postman and run the Api endpoints. Documentation can be accessed below
 
 
-## Documentation
+# Documentation
 The Api documentation is hosted at on [Postman Doc](https://documenter.getpostman.com/view/10912779/TVKEXcVs)
 
 
