@@ -22,8 +22,12 @@ class AuthenticationController extends Controller
         Auth::shouldUse('api');
     }
 
-     /** Create a new user to the system
-      *
+    /**
+     * Create a new user to the system
+     *
+     * @param JWTAuth $JWTAuth
+     * @param Request $request
+     * @return json
      */
      public function register(Request $request, JWTAuth $JWTAuth){
 
@@ -54,8 +58,13 @@ class AuthenticationController extends Controller
 
     }
 
-    /** User login to the system
-      *
+
+    /**
+     * User login to the system
+     *
+     * @param JWTAuth $JWTAuth
+     * @param Request $request
+     * @return json
      */
     public function login(Request $request, JWTAuth $JWTAuth)
     {
@@ -96,9 +105,13 @@ class AuthenticationController extends Controller
             }
     }
 
-     /** Get or Fetch All Registered Users data
-      *
+
+     /**
+     * Get or Fetch All Registered Users data
+     *
+     * @return json
      */
+
     public function getUsers(){
 
         $users = User::orderBy('firstname')->get(); // Gets all users data
@@ -115,6 +128,8 @@ class AuthenticationController extends Controller
 
     /** Authenticated user Generates new token for further action
       *
+      * @param JWTAuth $JWTAuth
+     * @return json
      */
     public function generateToken(JWTAuth $JWTAuth){
 

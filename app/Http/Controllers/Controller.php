@@ -8,7 +8,10 @@ use Carbon\Carbon;
 
 class Controller extends BaseController
 {
-     //HTTP status codes
+     /**
+     * Defines HTTP status codes
+     *
+     */
      static $HTTP_NOT_FOUND = 404;
      static $HTTP_OK = 200;
      static $HTTP_UNPROCESSABLE_ENTITY = 422;

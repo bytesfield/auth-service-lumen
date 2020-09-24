@@ -115,7 +115,7 @@ class UserAuthTest extends TestCase
      }
 
      /** @test */
-    public function get_all_users_if_route_exist() {
+    public function can_get_all_users_if_route_exist() {
 
         $response = $this->json('GET','/api/getUsers');
 
