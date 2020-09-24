@@ -1,5 +1,5 @@
 # Authentication Service Lumen
-A simple User Registration, Authentication and Authorization service built in Laravel Lumen. 
+A simple User Registration, Authentication and Authorization service built in Laravel Lumen.
 
 # Installation
 ### Step 1
@@ -27,7 +27,7 @@ Open Postman and run the Api endpoints. Documentation can be accessed below
 
 
 # Documentation
-The Api documentation is hosted at on [Postman Doc](https://documenter.getpostman.com/view/10912779/TVKEXcVs)
+The API documentation is hosted on [Postman Doc](https://documenter.getpostman.com/view/10912779/TVKEXcVs)
 
 
 # Modification & Compilation
